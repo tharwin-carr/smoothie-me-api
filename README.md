@@ -1,26 +1,98 @@
-# Express Boilerplate!
+<h1>Smoothie Me Express API</h1>
 
-This is a boilerplate project used for starting new projects!
+<p>This is an express api for my Smoothie Me app. There are two endpoints smoothies and favorites.</p>
+<p>Both endpoints follow CRUD: In the project Smoothies utilizes GET, POST, and DELETE - an example of all is provided Favorites utilizes GET, POST and DELETE - 
+an example of each is provided</p>
 
-## Set up
+<h2>Smoothies</h2>
+<h3>Get all smoothies</h3>
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+<ul>
+    <li>URL: /api/smoothies</li>
+    <li>Method: GET</li>
+    <li>URL Params: None</li>
+    <li> DATA Params: None</li>
+    <li>Success Response: Code: 200 Content: 
+    {
+        "id": 1,
+        "title": "Berry Blast",
+        "fruit": "1 cup berry mix",
+        "vegetables": "",
+        "nutsseeds": "peanut butter",
+        "liquids": "1 cup milk",
+        "powders": "whey protein",
+        "sweetners": "honey",
+        "other": "oats"
+    }
+    <li>Error Response: Code: 404 NOT FOUND Content: error: { message: Smoothie not found }</li>
+</ul>
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+<h3>Post Smoothie</h3>
 
-## Scripts
+<ul>
+    <li>URL: /api/smoothies</li>
+    <li>Mehtod: POST</li>
+    <li>URL Params: None</li>
+    <li>DATA Params: {tite, fruit, vegetables, nutsseeds, liquids, powders, sweetners, other}</li>
+    <li>Success Response: Code 200 Content:
+        {
+            "title": "Berry Blast",
+            "fruit": "1 cup berry mix",
+            "vegetables": "",
+            "nutsseeds": "peanut butter",
+            "liquids": "1 cup milk",
+            "powders": "whey protein",
+            "sweetners": "honey",
+            "other": "oats"
+        }
+    <li>Error Response: Code 404 Content: error: { message: 'missing content in request body'}
+</ul>
 
-Start the application `npm start`
+<h3>Delete Smoothies</h3>
+    <ul>
+        <li>URL: /api/smoothies</li>
+        <li>Mehtod: POST</li>
+        <li>URL Params: :id</li>
+        <li>DATA Params: None </li>
+        <li>Success Response: Code 200 Content: {id: 2}</li>
+         <li>Error Response: Code 404 Content: error: { message: 'smoothie doesn't exist'}</li>
+    </ul>
 
-Start nodemon for the application `npm run dev`
+<h2>Favorites</h2>
+<h3>Get all favorites</h3>
 
-Run the tests `npm test`
+<ul>
+    <li>URL: /api/favorites</li>
+    <li>Method: GET</li>
+    <li>URL Params: None</li>
+    <li> DATA Params: None</li>
+    <li>Success Response: Code: 200 Content: {favorite_id: 1}
+    <li>Error Response: Code: 404 NOT FOUND Content: error: { message: Favorite not found }
+</ul>
 
-## Deploying
+<h3>Post favorite</h3>
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+<ul>
+    <li>URL: /api/favorites</li>
+    <li>Mehtod: POST</li>
+    <li>URL Params: None</li>
+    <li>DATA Params: {content}</li>
+    <li>Success Response: Code 200 Content: {favorite_id: 2}
+    <li>Error Response: Code 404 Content: error: { message: 'missing content in request body'}
+</ul>
+
+<h3>Delete favorite</h3>
+
+<ul>
+    <li>URL: /api/favorite</li>
+    <li>Mehtod: DELETE</li>
+    <li>URL Params: None</li>
+    <li>DATA Params: None</li>
+    <li>Success Response: Code 200 Content: {id: 2}
+    <li>Error Response: Code 404 Content: error: { message: 'Favorite doesn't exist'}
+</ul>
+
+<a href='https://smoothie-me.vercel.app/'>Live version of app</a>
+<a href='https://github.com/tharwin-carr/Smoothie-Me'>Client Repo</a>
+
+<p>Tech used: Postgresql, Express, React, Node(PERN), Knex, Chai</p>
